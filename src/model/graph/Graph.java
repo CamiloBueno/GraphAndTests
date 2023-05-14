@@ -9,6 +9,13 @@ public class Graph <K extends Comparable<K>,T> {
     private int time = 0;
 
 
+    public HashMap<K, Vertex<K, T>> getHashMapVertexes() {
+        return hashMapVertexes;
+    }
+
+    public void setHashMapVertexes(HashMap<K, Vertex<K, T>> hashMapVertexes) {
+        this.hashMapVertexes = hashMapVertexes;
+    }
 
     public Graph() {
         hashMapVertexes = new HashMap<>();
@@ -51,7 +58,6 @@ public class Graph <K extends Comparable<K>,T> {
                     break;
                 case 3:
                     vertexStart.addAdj(vertexFinal);
-                    vertexFinal.addAdj(vertexStart);
                     msj = "Vertexes connected";
                     break;
                 case 4:
@@ -78,11 +84,11 @@ public class Graph <K extends Comparable<K>,T> {
         Vertex<K,T> S = hashMapVertexes.get(vStart);
         for(K u : hashMapVertexes.keySet()){
             hashMapVertexes.get(u).setColor(Color.WHITE);
-            hashMapVertexes.get(u).setDistance(Double.MAX_VALUE);
+            hashMapVertexes.get(u).setDistance(Integer.MAX_VALUE);
             hashMapVertexes.get(u).setParent(null);
         }
         S.setColor(Color.GRAY);
-        S.setDistance(0.0);
+        S.setDistance(0);
         S.setParent(null);
 
         Queue<Vertex> Q = new LinkedList<>();
@@ -98,7 +104,7 @@ public class Graph <K extends Comparable<K>,T> {
                     Q.add(v);
                 }
             }
-            u.setColor
+            u.setColor(Color.BLACK);
         }
     }
 
@@ -119,22 +125,20 @@ public class Graph <K extends Comparable<K>,T> {
 
     public void dfsVisit(Vertex<K,T> u){
         time = time + 1;
-        u.setStartTime(time);
-        u.setColor("GREY");
+        u.setOriginTime(time);
+        u.setColor(Color.GRAY);
         for (Vertex<K,T> v : u.getAdj()){
-            if(v.getColor() == "WHITE"){
+            if(v.getColor() == Color.WHITE){
                 v.setParent(u);
                 dfsVisit(v);
             }
         }
-        u.setColor("BLACK");
+        u.setColor(Color.BLACK);
         time = time +1;
-        u.setFinalTime(time);
+        u.setEndTime(time);
     }
 
-
-
-}
+    }
 
 /*
 public class Graph<K,T> {
