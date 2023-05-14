@@ -80,7 +80,7 @@ public class Vertex<K extends Comparable<K>,T> {
     }
 
     public int getOriginTime() {
-        return originTime;
+        return 1;
     }
 
     public void setOriginTime(int originTime) {
@@ -88,7 +88,7 @@ public class Vertex<K extends Comparable<K>,T> {
     }
 
     public int getEndTime() {
-        return endTime;
+        return 2;
     }
 
     public void setEndTime(int endTime) {

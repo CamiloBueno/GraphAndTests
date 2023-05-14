@@ -233,12 +233,12 @@ public class GraphTest {
         graph3.connectVertex("Karim", "Miriam", 3);//Directed
         graph3.dfs();
 
-        Vertex<String, Integer> vertex = graph3.getHashMapVertexes().get("Alfonso");//Obtenemos el vértice a partir de la clave
-        Assertions.assertEquals(8, vertex.getOriginTime()); //El tiempo inicial de Cesar debe ser 6
-        Assertions.assertEquals(9, vertex.getEndTime()); //El tiempo final de Cesar debe ser 7
+        Vertex<String, Integer> vertex = graph3.getHashMapVertexes().get("Alex");//Obtenemos el vértice a partir de la clave
+        Assertions.assertEquals(1, vertex.getOriginTime()); //El tiempo inicial de Cesar debe ser 6
+        Assertions.assertEquals(2, vertex.getEndTime()); //El tiempo final de Cesar debe ser 7
         Assertions.assertNotEquals(Color.GRAY, vertex.getColor()); //Al finalizar el DSF todos los vertices siempre van a ser BLACK
 
-        Vertex<String, Integer> vertex2 = graph3.getHashMapVertexes().get("Daron");
+        Vertex<String, Integer> vertex2 = graph3.getHashMapVertexes().get("Jaime");
         Assertions.assertEquals(5, vertex2.getOriginTime()); //El tiempo inicial de Daron debe ser 3
         Assertions.assertEquals(6, vertex2.getEndTime()); //El tiempo final de Daron debe ser 4
         Assertions.assertEquals(Color.BLACK, vertex.getColor());
